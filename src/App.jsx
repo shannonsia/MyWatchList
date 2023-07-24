@@ -1,9 +1,34 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
+  return (
+    <>
+      <div className="navigation">
+        <div>MyWatchList</div>
+        <div className="nav-links">
+          <a>Movies</a>
+          <a>TV Shows</a>
+          <a>My List</a>
+        </div>
+      </div>
+      <div className="featured">Popular Movies</div>
+      <div className="footer">
+        <div className="footer-links">
+          <a>Conditions of Use</a>
+          <a>Privacy & Policy</a>
+          <a>Press Room</a>
+        </div>
+        <a>{"\u00a9"}2023 MovieBox by Shannon Sia</a>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+/* function App() {
   const [count, setCount] = useState(0);
 
   return (
@@ -33,3 +58,4 @@ function App() {
 }
 
 export default App;
+*/
