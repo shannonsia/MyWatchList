@@ -55,55 +55,62 @@ function Carousel() {
   };
 
   return (
-    <div>
-      <div className="gallery">
-        <div className="navigation">
-          <div className="nav-links">
-            <a>Movies</a>
-            <a>TV Shows</a>
-            <a>My List</a>
+    <div className="black-screen">
+      <div>
+        <div className="gallery">
+          <div className="navigation">
+            <div className="nav-links">
+              <a>Movies</a>
+              <a>TV Shows</a>
+              <a>My List</a>
+            </div>
           </div>
-        </div>
-        <img
-          className="backdrop"
-          src={`https://image.tmdb.org/t/p/w500${currentMovie.backdrop_path}`}
-        ></img>
+          <img
+            className="backdrop"
+            src={`https://image.tmdb.org/t/p/w500${currentMovie.backdrop_path}`}
+          ></img>
 
-        <div className="content">
-          <button
-            type="button"
-            className="previous-button"
-            onClick={() => handleClick("previous")}
-          >
-            <img src="/images/chevron-right.svg"></img>
-          </button>
+          <div className="content">
+            <div className="content-text">
+              <h1>{currentMovie.title}</h1>
+              <div className="movie-rating">
+                <img src="./images/imdb.png" style={{ height: "15px" }}></img>
 
-          <div className="content-text">
-            <h1>{currentMovie.title}</h1>
-            <p>{currentMovie.overview}</p>
+                <div>{currentMovie.vote_count} votes</div>
+              </div>
+              <p>{currentMovie.overview}</p>
+              <button
+                className="watchlist-button"
+                onClick={() => handleAddToWatchlist(currentMovie)}
+              >
+                ADD TO WATCHLIST
+              </button>
+            </div>
+
             <button
-              className="watchlist-button"
-              onClick={() => handleAddToWatchlist(currentMovie)}
+              type="button"
+              className="previous-button"
+              onClick={() => handleClick("previous")}
             >
-              ADD TO WATCHLIST
+              <img src="/images/chevron-right.svg"></img>
+            </button>
+
+            <button
+              type="button"
+              className="next-button"
+              onClick={() => handleClick("next")}
+            >
+              <img src="/images/chevron-right.svg"></img>
             </button>
           </div>
-
-          <button
-            type="button"
-            className="next-button"
-            onClick={() => handleClick("next")}
-          >
-            <img src="/images/chevron-right.svg"></img>
-          </button>
         </div>
-      </div>
 
-      <div className="watchlist">
-        <h3>Watchlist:</h3>
-        {watchlist.map((movie) => {
-          return movie;
-        })}
+        <div className="watchlist">
+          <h3>Watchlist:</h3>
+          {watchlist.map((movie) => {
+            return movie;
+          })}
+        </div>
       </div>
     </div>
   );
@@ -163,7 +170,7 @@ function Featured() {
 
   return (
     <>
-      <div className="top-rated">
+      <div className="top-rated-section">
         <IndividualMovie
           poster={topOne?.poster_path}
           name={topOne?.title}
