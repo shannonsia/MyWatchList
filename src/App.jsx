@@ -104,16 +104,37 @@ function Carousel() {
             </button>
           </div>
         </div>
-
-        <div className="watchlist">
-          <h3>Watchlist:</h3>
-          {watchlist.map((movie) => {
-            return movie;
-          })}
-        </div>
       </div>
     </div>
   );
+}
+
+function Genre() {
+  const [genreList, setGenre] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const options = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzA0MWE4YTIyMDlmODIyMGI3OTkzMzcyNWI2NzlhOSIsInN1YiI6IjY0YmU3YTVlYjg2NWViMDBlMjA3NzJjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7h_nhp6EyNVeRVAiGMhRXGapKSJIaYzxwudAbuqNG28",
+        },
+      };
+
+      const response = await fetch(
+        "https://api.themoviedb.org/3/genre/movie/list?language=en",
+        options
+      );
+      const responseJSON = await response.json();
+      console.log(responseJSON);
+
+      setGenre(responseJSON.results);
+    }
+
+    fetchData();
+  }, []);
 }
 
 function Featured() {
@@ -134,7 +155,6 @@ function Featured() {
         "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
         options
       );
-      console.log("FEATURED MOVIES");
       const responseJSON = await response.json();
       setTopRated(responseJSON.results);
     }
@@ -145,8 +165,6 @@ function Featured() {
   var topTwo = topRated[1];
   var topThree = topRated[2];
   var topFour = topRated[3];
-
-  console.log(topOne);
 
   function IndividualMovie({ poster, name, rating, genre }) {
     return (
@@ -175,26 +193,39 @@ function Featured() {
           poster={topOne?.poster_path}
           name={topOne?.title}
           rating={topOne?.vote_average}
+          genre={topOne?.genre_ids}
         ></IndividualMovie>
         <IndividualMovie
           poster={topTwo?.poster_path}
           name={topTwo?.title}
           rating={topTwo?.vote_average}
+          genre={topTwo?.genre_ids}
         ></IndividualMovie>
         <IndividualMovie
           poster={topThree?.poster_path}
           name={topThree?.title}
           rating={topThree?.vote_average}
+          genre={topThree?.genre_ids}
         ></IndividualMovie>
         <IndividualMovie
           poster={topFour?.poster_path}
           name={topFour?.title}
           rating={topFour?.vote_average}
+          genre={topFour?.genre_ids}
         ></IndividualMovie>
       </div>
     </>
   );
 }
+/* ADD TO WATCHLIST
+<div className="watchlist">
+<h3>Watchlist:</h3>
+{watchlist.map((movie) => {
+  return movie;
+})}
+</div>
+
+*/
 
 /*
 
@@ -211,6 +242,9 @@ function Featured() {
 function App() {
   return (
     <>
+      <div>
+        <Genre></Genre>
+      </div>
       <div>
         <Carousel></Carousel>
       </div>

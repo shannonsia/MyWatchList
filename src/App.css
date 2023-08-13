@@ -24,15 +24,16 @@ body {
 
 .gallery {
   height: 500px;
-  position: relative;
   color: white;
-  display: flex;
+  position: relative;
 }
 
 .navigation {
-  border: 5px solid black;
   color: white;
   position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .nav-links {
@@ -41,15 +42,15 @@ body {
 }
 
 .content {
-  padding: 32px;
   display: flex;
   align-items: center;
+  width: 40%;
+  margin-left: 15%;
 }
 
 .content-text {
   text-align: left;
-  width: 40%;
-  margin: 15%;
+  margin-top: 30px;
 }
 
 .backdrop {
@@ -111,6 +112,7 @@ body {
 
 .previous-button:hover,
 .next-button:hover,
-.watchlist-button:hover {
+.watchlist-button:hover,
+.nav-links:hover {
   cursor: pointer;
 }
