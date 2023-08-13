@@ -57,6 +57,13 @@ function Carousel() {
   return (
     <div>
       <div className="gallery">
+        <div className="navigation">
+          <div className="nav-links">
+            <a>Movies</a>
+            <a>TV Shows</a>
+            <a>My List</a>
+          </div>
+        </div>
         <img
           className="backdrop"
           src={`https://image.tmdb.org/t/p/w500${currentMovie.backdrop_path}`}
@@ -72,10 +79,10 @@ function Carousel() {
           </button>
 
           <div className="content-text">
-            <h2>{currentMovie.title}</h2>
+            <h1>{currentMovie.title}</h1>
             <p>{currentMovie.overview}</p>
             <button
-              className="watchlist"
+              className="watchlist-button"
               onClick={() => handleAddToWatchlist(currentMovie)}
             >
               ADD TO WATCHLIST
@@ -138,10 +145,14 @@ function Featured() {
     return (
       <>
         <section>
-          <img src={poster}></img>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${poster}`}
+            className="movie-poster"
+          ></img>
           <h4>{name}</h4>
           <div className="movie-rating">
             <img src="./images/imdb.png" style={{ height: "15px" }}></img>
+
             <div>{rating}/10</div>
           </div>
           <div>{genre}</div>
@@ -154,18 +165,22 @@ function Featured() {
     <>
       <div className="top-rated">
         <IndividualMovie
+          poster={topOne?.poster_path}
           name={topOne?.title}
           rating={topOne?.vote_average}
         ></IndividualMovie>
         <IndividualMovie
+          poster={topTwo?.poster_path}
           name={topTwo?.title}
           rating={topTwo?.vote_average}
         ></IndividualMovie>
         <IndividualMovie
+          poster={topThree?.poster_path}
           name={topThree?.title}
           rating={topThree?.vote_average}
         ></IndividualMovie>
         <IndividualMovie
+          poster={topFour?.poster_path}
           name={topFour?.title}
           rating={topFour?.vote_average}
         ></IndividualMovie>
@@ -189,14 +204,6 @@ function Featured() {
 function App() {
   return (
     <>
-      <div className="navigation">
-        <div>MyWatchList</div>
-        <div className="nav-links">
-          <a>Movies</a>
-          <a>TV Shows</a>
-          <a>My List</a>
-        </div>
-      </div>
       <div>
         <Carousel></Carousel>
       </div>

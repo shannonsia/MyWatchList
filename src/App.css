@@ -4,16 +4,11 @@
   text-align: center;
 }
 
-.nav-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
 .footer-links {
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin-top: 20px;
 }
 
 html,
@@ -26,6 +21,18 @@ body {
   height: 500px;
   position: relative;
   color: white;
+  display: flex;
+}
+
+.navigation {
+  border: 5px solid black;
+  color: white;
+  position: absolute;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
 }
 
 .content {
@@ -36,6 +43,7 @@ body {
 
 .content-text {
   text-align: left;
+  width: 40%;
 }
 
 .backdrop {
@@ -61,7 +69,7 @@ body {
   height: 48px;
 }
 
-.watchlist {
+.watchlist-button {
   background-color: rgb(173, 11, 11);
   color: white;
   padding: 4px 20px;
@@ -74,8 +82,18 @@ body {
   justify-content: space-evenly;
 }
 
+.movie-poster {
+  width: 80%;
+}
+
 .movie-rating {
   display: flex;
   gap: 8px;
   align-items: center;
+}
+
+.previous-button:hover,
+.next-button:hover,
+.watchlist-button:hover {
+  cursor: pointer;
 }
