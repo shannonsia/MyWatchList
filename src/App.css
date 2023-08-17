@@ -26,12 +26,13 @@ body {
   height: 500px;
   color: white;
   position: relative;
+  display: flex;
 }
 
 .navigation {
   color: white;
   position: absolute;
-  top: 5%;
+  top: 3%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -50,7 +51,6 @@ body {
 
 .content-text {
   text-align: left;
-  margin-top: 30px;
 }
 
 .backdrop {
@@ -80,6 +80,11 @@ body {
   right: 5%;
 }
 
+.my-watchlist {
+  position: absolute;
+  padding-left: 5px;
+}
+
 .watchlist-button {
   background-color: rgb(173, 11, 11);
   color: white;
@@ -92,7 +97,11 @@ body {
   color: red;
 }
 
-.top-rated-section {
+.trending {
+  padding: 30px;
+}
+
+.trending-section {
   display: flex;
   gap: 25px;
   padding: 15px;
@@ -113,6 +122,7 @@ body {
 .previous-button:hover,
 .next-button:hover,
 .watchlist-button:hover,
-.nav-links:hover {
+.nav-links:hover,
+.my-watchlist {
   cursor: pointer;
 }
