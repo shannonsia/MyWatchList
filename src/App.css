@@ -112,6 +112,24 @@ body {
   width: 100%;
 }
 
+.heart {
+  z-index: 1;
+  height: 25px;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  fill: rgb(172, 167, 167);
+}
+
+.heart:hover {
+  fill: rgb(194, 6, 6);
+  cursor: pointer;
+}
+
+.image {
+  position: relative;
+}
+
 .movie-rating {
   display: flex;
   gap: 8px;
@@ -119,10 +137,22 @@ body {
   color: grey;
 }
 
-.previous-button:hover,
-.next-button:hover,
 .watchlist-button:hover,
 .nav-links:hover,
 .my-watchlist {
+  cursor: pointer;
+}
+
+.next-button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.previous-button:hover {
+  cursor: pointer;
+  transform: scale(1.2) rotate(180deg);
+}
+
+.watchlist-button:hover {
   cursor: pointer;
 }

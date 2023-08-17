@@ -226,7 +226,7 @@ function Trending() {
 
 */
 
-function Homepage() {
+function Movie() {
   /* const ShowWatchlist = (clicked) => {
     //const [myWatchlist, setMyWatchlist] = useState(false);
     if (clicked === "true") {
@@ -265,4 +265,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Movie;
